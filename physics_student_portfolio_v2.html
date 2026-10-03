@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Physics Student Portfolio</title>
+  <style>
+    /* Early 2010s inspired clean style: white background, square edges, no gradients */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #ffffff;
+      color: #222222;
+      line-height: 1.5;
+    }
+
+    .wrapper {
+      width: 960px;
+      margin: 0 auto;
+    }
+
+    header {
+      border-bottom: 1px solid #cfcfcf;
+      background: #f8f8f8;
+    }
+
+    .header-inner {
+      width: 960px;
+      margin: 0 auto;
+      padding: 18px 0;
+    }
+
+    .site-title {
+      font-size: 28px;
+      font-weight: bold;
+      letter-spacing: 0.2px;
+      color: #1f3a60;
+    }
+
+    .site-subtitle {
+      font-size: 13px;
+      color: #666666;
+      margin-top: 3px;
+    }
+
+    nav {
+      border-top: 1px solid #dddddd;
+      border-bottom: 1px solid #dddddd;
+      background: #efefef;
+    }
+
+    .nav-inner {
+      width: 960px;
+      margin: 0 auto;
+      list-style: none;
+      overflow: hidden;
+    }
+
+    .nav-inner li {
+      float: left;
+      border-right: 1px solid #d8d8d8;
+    }
+
+    .nav-inner a {
+      display: block;
+      padding: 10px 16px;
+      text-decoration: none;
+      color: #2a2a2a;
+      font-size: 14px;
+    }
+
+    .nav-inner a:hover,
+    .nav-inner a.active {
+      background: #dfe8f5;
+      color: #153a6b;
+    }
+
+    .layout {
+      width: 960px;
+      margin: 20px auto 40px auto;
+      overflow: hidden;
+    }
+
+    .main {
+      width: 640px;
+      float: left;
+      padding-right: 20px;
+    }
+
+    .sidebar {
+      width: 300px;
+      float: right;
+    }
+
+    .box {
+      border: 1px solid #d4d4d4;
+      background: #ffffff;
+      margin-bottom: 18px;
+    }
+
+    .box h2 {
+      font-size: 20px;
+      color: #1f3a60;
+      border-bottom: 1px solid #e2e2e2;
+      background: #f5f5f5;
+      padding: 10px 12px;
+    }
+
+    .box-content {
+      padding: 12px;
+      font-size: 14px;
+      color: #333333;
+    }
+
+    .intro-title {
+      font-size: 32px;
+      color: #1f3a60;
+      margin-bottom: 8px;
+    }
+
+    .muted {
+      color: #666666;
+      font-size: 14px;
+    }
+
+    ul.standard {
+      margin-left: 20px;
+      margin-top: 8px;
+    }
+
+    ul.standard li { margin-bottom: 6px; }
+
+    .meta-list {
+      list-style: none;
+    }
+
+    .meta-list li {
+      padding: 6px 0;
+      border-bottom: 1px dotted #dcdcdc;
+      font-size: 14px;
+    }
+
+    .meta-list li:last-child { border-bottom: none; }
+
+    .report {
+      border: 1px solid #e0e0e0;
+      margin-bottom: 12px;
+      background: #fbfbfb;
+    }
+
+    .report h3 {
+      font-size: 15px;
+      padding: 8px 10px;
+      border-bottom: 1px solid #e6e6e6;
+      background: #f0f0f0;
+      color: #333;
+    }
+
+    .report .pdf-preview {
+      width: 100%;
+      height: 260px;
+      border: 0;
+      display: block;
+      background: #ffffff;
+    }
+
+    .report .report-links {
+      padding: 8px 10px 10px 10px;
+      font-size: 13px;
+    }
+
+    .report .report-links a {
+      color: #1b4f8a;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+
+    .report .report-links a:hover {
+      text-decoration: underline;
+    }
+
+    .social-links a {
+      display: inline-block;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      padding: 6px 10px;
+      border: 1px solid #cfcfcf;
+      text-decoration: none;
+      color: #2c2c2c;
+      background: #f6f6f6;
+      font-size: 13px;
+    }
+
+    .social-links a:hover {
+      background: #e8eef7;
+      border-color: #b7c8de;
+    }
+
+    footer {
+      width: 960px;
+      margin: 0 auto 30px auto;
+      border-top: 1px solid #d8d8d8;
+      padding-top: 12px;
+      color: #666666;
+      font-size: 12px;
+      clear: both;
+    }
+
+    .small-note {
+      font-size: 12px;
+      color: #7a7a7a;
+    }
+
+    @media (max-width: 980px) {
+      .wrapper, .header-inner, .nav-inner, .layout, footer {
+        width: 92%;
+      }
+
+      .main, .sidebar {
+        float: none;
+        width: 100%;
+        padding-right: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="site-title">Personal website</div>
+      <div class="site-subtitle">Academic profile, interests, and experience</div>
+    </div>
+  </header>
+
+  <!-- <nav>
+    <ul class="nav-inner" id="navMenu">
+      <li><a href="#about">About</a></li>
+      <li><a href="#qualifications">Qualifications</a></li>
+      <li><a href="#interests">Interests</a></li>
+      <li><a href="#reports">Lab Reports</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav> -->
+
+  <div class="layout">
+    <main class="main">
+      <section class="box" id="about">
+        <h2>About</h2>
+        <div class="box-content">
+          <div class="intro-title">Hello, I'm Ben</div>
+          <p class="muted">Imperial Physics Undergraduate</p>
+          <p style="margin-top:10px;">
+            I'm a second year physics student
+          </p>
+          <!-- <p style="margin-top:8px;">
+            
+          </p> -->
+        </div>
+      </section>
+
+      <section class="box" id="qualifications">
+        <h2>Qualifications</h2>
+        <div class="box-content">
+          <ul class="standard">
+            <li><strong>MSc Physics</strong> — Imperial College London (2025-2029)</li>
+            <li><strong>Modules:</strong> Mechanics and Relativity, Oscillations and waves, Advanced Electronics, Vector Fields and Electromagnetism, Statistics of Measurement and the Summer Project, French Level 1</li>
+            <li><strong>A-Levels</strong> — A*s in Physics, Maths, Further Maths, Computer Science</li>
+            <li><strong>Skills:</strong> Python, Pandas, Data Analysis, LaTeX</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="box" id="interests">
+        <h2>Interests</h2>
+        <div class="box-content">
+          <ul class="standard">
+            <li>General Relativity</li>
+            <li>Environmental Physics</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="box" id="reports">
+        <h2>Lab Reports</h2>
+        <div class="box-content">
+          <div class="report">
+            <h3>Pendulum</h3>
+            <iframe class="pdf-preview" src="lab_report_pendulum.pdf"></iframe>
+            <div class="report-links">
+              <a href="lab_report_pendulum.pdf" target="_blank">Open PDF</a>
+              <a href="lab_report_pendulum.pdf" download>Download</a>
+            </div>
+          </div>
+
+          <div class="report">
+            <h3>Advanced Electronics - Phase Locked Loop</h3>
+            <iframe class="pdf-preview" src="Advanced_electronics.pdf"></iframe>
+            <div class="report-links">
+              <a href="Advanced_electronics.pdf" target="_blank">Open PDF</a>
+              <a href="Advanced_electronics.pdf" download>Download</a>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+
+    <aside class="sidebar">
+      <section class="box">
+        <h2>At a Glance</h2>
+        <div class="box-content">
+          <ul class="meta-list">
+            <li><strong>University:</strong> Imperial College</li>
+            <li><strong>Degree:</strong> MSc Physics (2nd year)</li>
+            <!-- <li><strong>Focus:</strong></li> -->
+            <li><strong>Location:</strong> London</li>
+            <li><strong>Graduation:</strong> 2029</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="box" id="contact">
+        <h2>Contact</h2>
+        <div class="box-content">
+          <p>Email: br425@ic.ac.uk</p>
+          <div class="social-links" style="margin-top:10px;">
+            <a href="https://www.linkedin.com/in/ben-r06" target="_blank">LinkedIn</a>
+            <a href="https://github.com/br2006" target="_blank">GitHub</a>
+          </div>
+        </div>
+      </section>
+    </aside>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Ben R — Website template generated with AI
+  </footer>
+
+  <script>
+    // Active menu link on scroll (simple static JS enhancement)
+    (function() {
+      var links = document.querySelectorAll('#navMenu a');
+      var sections = [];
+      for (var i = 0; i < links.length; i++) {
+        var id = links[i].getAttribute('href');
+        var section = document.querySelector(id);
+        if (section) sections.push({ link: links[i], section: section });
+      }
+
+      function setActive() {
+        var y = window.scrollY + 120;
+        var current = null;
+        for (var i = 0; i < sections.length; i++) {
+          if (y >= sections[i].section.offsetTop) current = sections[i];
+        }
+        for (var j = 0; j < sections.length; j++) {
+          sections[j].link.className = '';
+        }
+        if (current) current.link.className = 'active';
+      }
+
+      window.addEventListener('scroll', setActive);
+      setActive();
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
