@@ -223,6 +223,29 @@
         padding-right: 0;
       }
     }
+    /* Keep all box content from spilling out */
+  .box-content {
+    overflow: hidden;
+  }
+
+  /* Responsive grid for certificates */
+  .certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+    align-items: start;
+  }
+
+  /* Make certificate images stay inside each grid cell */
+  .certificates-grid img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;          /* preserves aspect ratio */
+    display: block;
+    object-fit: contain;   /* ensures full image is visible */
+    border-radius: 8px;    /* optional styling */
+    border: 1px solid #ddd;
+  }
   </style>
 </head>
 <body>
@@ -332,11 +355,14 @@
       </section>
 
       <section class="box">
-        <h2>Certificates</h2>
-        <div class="box-content">
-          <img src="nsupa.png">
-        </div>
+        <section class="box" id="certificates">
+          <h2>Certificates</h2>
+          <div class="box-content certificates-grid">
+            <img src="nsupa.png" alt="Certificate 1">
+          </div>
+        </section>
       </section>
+      
     </aside>
   </div>
 
